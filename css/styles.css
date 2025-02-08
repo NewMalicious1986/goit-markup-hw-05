@@ -496,7 +496,7 @@ input:focus, textarea:focus, button:focus {
   background-color: var(--green);
 }
 
-.overlay {
+.modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -511,7 +511,7 @@ input:focus, textarea:focus, button:focus {
   transition: opacity var(--transition);
 }
 
-.overlay.is-open {
+.modal-overlay.is-open {
   opacity: 1;
   pointer-events: auto;
 }

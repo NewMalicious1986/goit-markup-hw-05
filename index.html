@@ -463,7 +463,7 @@
         </div>
       </div>
     </footer>
-    <div class="overlay">
+    <div class="modal-overlay">
       <div class="modal">
         <button class="close-button" type="button">
           <svg height="8" width="8">
@@ -517,5 +517,25 @@
         </form>
       </div>
     </div>
+
+    <script>
+      const overlay = document.querySelector('.modal-overlay');
+      const closeButton = document.querySelector('.close-button');
+      const orderButton = document.querySelector('.accent-button[type="button"]');
+
+      orderButton.addEventListener('click', () => {
+        overlay.classList.add('is-open');
+      });
+
+      closeButton.addEventListener('click', () => {
+        overlay.classList.remove('is-open');
+      });
+
+      overlay.addEventListener('click', (event) => {
+        if (event.target === overlay) {
+          overlay.classList.remove('is-open');
+        }
+      });
+    </script>
   </body>
 </html>
