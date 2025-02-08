@@ -462,78 +462,82 @@
           </ul>
         </div>
       </div>
-    </footer>
-    <div class="modal-overlay">
-      <div class="modal">
-        <button class="close-button" type="button">
-          <svg height="8" width="8">
-            <use href="./images/icons.svg#close-icon"></use>
-          </svg>
-        </button>
-        <p class="modal-header">
-          Leave your contacts and we will call you back
-        </p>
-        <form class="form">
-          <label class="form-label"
-            >Name
-            <input class="form-input" type="text" name="name" required />
-            <svg height="24" width="18" class="social-icon">
-              <use href="./images/icons.svg#person-icon"></use>
+      <div class="modal-overlay">
+        <div class="modal">
+          <button class="close-button" type="button">
+            <svg height="8" width="8">
+              <use href="./images/icons.svg#close-icon"></use>
             </svg>
-          </label>
-          <label class="form-label"
-            >Phone
-            <input class="form-input" type="tel" name="tel" required />
-            <svg height="24" width="18" class="social-icon">
-              <use href="./images/icons.svg#phone-icon"></use>
-            </svg>
-          </label>
-          <label class="form-label"
-            >Email
-            <input class="form-input" type="email" name="email" required />
-            <svg height="24" width="18" class="social-icon">
-              <use href="./images/icons.svg#email-icon"></use>
-            </svg>
-          </label>
-          <label class="form-label">
-            Comment
-            <textarea
-              class="form-textarea"
-              name="message"
-              placeholder="Text input"
-              rows="8"
-            ></textarea>
-          </label>
-          <label class="form-label checkbox-label">
-            <input
-              type="checkbox"
-              name="accept"
-              class="form-input form-input-checkbox"
-            />
-            I accept the terms and conditions of the&nbsp;<a href=""> Privacy Policy</a> 
-          </label>
+          </button>
+          <p class="modal-header">
+            Leave your contacts and we will call you back
+          </p>
+          <form class="form">
+            <label class="form-label"
+              >Name
+              <input class="form-input" type="text" name="name" required />
+              <svg height="24" width="18" class="social-icon">
+                <use href="./images/icons.svg#person-icon"></use>
+              </svg>
+            </label>
+            <label class="form-label"
+              >Phone
+              <input class="form-input" type="tel" name="tel" required />
+              <svg height="24" width="18" class="social-icon">
+                <use href="./images/icons.svg#phone-icon"></use>
+              </svg>
+            </label>
+            <label class="form-label"
+              >Email
+              <input class="form-input" type="email" name="email" required />
+              <svg height="24" width="18" class="social-icon">
+                <use href="./images/icons.svg#email-icon"></use>
+              </svg>
+            </label>
+            <label class="form-label">
+              Comment
+              <textarea
+                class="form-textarea"
+                name="message"
+                placeholder="Text input"
+                rows="8"
+              ></textarea>
+            </label>
+            <label class="form-label checkbox-label">
+              <input
+                type="checkbox"
+                name="accept"
+                class="form-input form-input-checkbox"
+              />
+              I accept the terms and conditions of the&nbsp;<a href="">
+                Privacy Policy</a
+              >
+            </label>
 
-          <button class="accent-button" type="submit">Send</button>
-        </form>
+            <button class="accent-button" type="submit">Send</button>
+          </form>
+        </div>
       </div>
-    </div>
+    </footer>
 
     <script>
-      const overlay = document.querySelector('.modal-overlay');
-      const closeButton = document.querySelector('.close-button');
-      const orderButton = document.querySelector('.accent-button[type="button"]');
+      const overlay = document.querySelector(".modal-overlay");
+      const closeButton = document.querySelector(".close-button");
+      const orderButton = document.querySelector(
+        '.accent-button[type="button"]'
+      );
 
-      orderButton.addEventListener('click', () => {
-        overlay.classList.add('is-open');
+      orderButton.addEventListener("click", () => {
+        overlay.classList.add("is-open");
       });
 
-      closeButton.addEventListener('click', () => {
-        overlay.classList.remove('is-open');
+      closeButton.addEventListener("click", () => {
+        overlay.classList.remove("is-open");
       });
 
-      overlay.addEventListener('click', (event) => {
+      overlay.addEventListener("click", (event) => {
         if (event.target === overlay) {
-          overlay.classList.remove('is-open');
+          overlay.classList.remove("is-open");
         }
       });
     </script>
