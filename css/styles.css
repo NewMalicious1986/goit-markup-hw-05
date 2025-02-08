@@ -68,7 +68,9 @@ h3 {
 ul {
   list-style-type: none;
 }
-input:focus, textarea:focus, button:focus {
+input:focus,
+textarea:focus,
+button:focus {
   outline: none;
 }
 
@@ -503,41 +505,63 @@ input:focus, textarea:focus, button:focus {
   width: 100%;
   height: 100%;
   background-color: var(--navy-blue-modal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--transition);
+  transition: opacity var(--transition), visibility var(--transition);
 }
 
 .modal-overlay.is-open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
 }
 
 .modal {
   display: flex;
+  position: absolute;
+  width: 408px;
+  min-height: 584px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   flex-direction: column;
-  padding: 24px;
+  padding: 72px 24px 24px;
   border-radius: 4px;
   background-color: var(--dairy);
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  transition: transform var(--transition);
 }
 
 .close-button {
+  position: absolute;
   height: 24px;
   width: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  align-self: flex-end;
+  top: 24px;
+  right: 24px;
   cursor: pointer;
   background-color: var(--cornflower);
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin-bottom: 24px;
+  transition: background-color var(--transition), border var(--transition);
+}
+
+.close-button:hover, .close-button:focus, .close-button:active {
+  background-color: var(--ocean);
+  border: none;
+}
+
+.close-icon {
+  transition: fill var(--transition);
+}
+
+.close-button:hover .close-icon, .close-button:focus .close-icon {
+  fill: var(--white);
 }
 
 .modal-header {
@@ -549,43 +573,58 @@ input:focus, textarea:focus, button:focus {
   color: var(--navy-blue);
   margin-bottom: 16px;
 }
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+
+.form-group {
+  margin-bottom: 8px;
 }
+
 .form-label {
   font-weight: 400;
   font-size: 12px;
-  line-height: 1.2;
+  line-height: 1.17;
   letter-spacing: 0.04em;
   color: var(--light-slate);
-  display: flex;
-  flex-direction: column;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.form-input-wrapper {
   position: relative;
 }
 
 .checkbox-label {
- flex-direction: row;
- align-items: center;
- line-height: 16px;
+  flex-direction: row;
+  align-items: center;
+  line-height: 16px;
 }
 
 .form-input {
-  border: 1px solid var(--navy-blue);
+  width: 100%;
+  border: 1px solid var(--navy-blue-modal);
+  background-color: transparent;
+  outline: transparent;
   border-radius: 4px;
   height: 40px;
-  margin-top: 4px;
-  padding: 0 8px 0 38px;
+  padding-left: 38px;
   font-size: 16px;
   transition: border-color var(--transition);
 }
+
 .form-input:focus-within {
   border-color: var(--iris);
 }
 
-.form-input:focus-within + .social-icon {
+.form-input:focus-within + .form-icon {
   fill: var(--iris);
+}
+
+.form-icon {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  transform: translateY(-50%);
+  fill: var(--navy-blue);
+  transition: fill var(--transition);
 }
 
 .form-input-checkbox {
@@ -596,12 +635,41 @@ input:focus, textarea:focus, button:focus {
   margin-right: 8px;
 }
 
+.form-input-checkbox:checked + .checkbox-label .checkbox-icon {
+  background-color: var(--iris);
+  border: none;
+  fill: var(--cloud);
+}
+
+.policy {
+  color: var(--iris);
+}
+
+.checkbox-icon {
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--navy-blue-modal);
+  border-radius: 2px;
+  transition: background-color var(--transition), border var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  fill: transparent;
+}
+
 .form-textarea {
-  border: 1px solid var(--navy-blue);
+  width: 100%;
+  height: 120px;
+  border: 1px solid var(--navy-blue-modal);
+  background-color: transparent;
+  outline: transparent;
   border-radius: 4px;
   margin-top: 4px;
   padding: 8px 16px;
-  font-size: 16px;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: var(--navy-blue-modal);
   resize: none;
   transition: border-color var(--transition);
 }
@@ -618,6 +686,10 @@ input:focus, textarea:focus, button:focus {
   color: var(--navy-blue-modal);
 }
 
+.form-group-checkbox {
+  margin-bottom: 24px;
+}
+
 .form-label .social-icon {
   position: absolute;
   top: 25px;
@@ -632,5 +704,8 @@ input:focus, textarea:focus, button:focus {
 }
 
 .form .accent-button {
-  align-self: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: block;
 }

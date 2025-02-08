@@ -466,7 +466,7 @@
     <div class="modal-overlay">
       <div class="modal">
         <button class="close-button" type="button">
-          <svg height="8" width="8">
+          <svg height="8" width="8" class="close-icon">
             <use href="./images/icons.svg#close-icon"></use>
           </svg>
         </button>
@@ -474,44 +474,83 @@
           Leave your contacts and we will call you back
         </p>
         <form class="form">
-          <label class="form-label"
-            >Name
-            <input class="form-input" type="text" name="name" required />
-            <svg height="24" width="18" class="social-icon">
-              <use href="./images/icons.svg#person-icon"></use>
-            </svg>
-          </label>
-          <label class="form-label"
-            >Phone
-            <input class="form-input" type="tel" name="tel" required />
-            <svg height="24" width="18" class="social-icon">
-              <use href="./images/icons.svg#phone-icon"></use>
-            </svg>
-          </label>
-          <label class="form-label"
-            >Email
-            <input class="form-input" type="email" name="email" required />
-            <svg height="24" width="18" class="social-icon">
-              <use href="./images/icons.svg#email-icon"></use>
-            </svg>
-          </label>
-          <label class="form-label">
-            Comment
+          <div class="form-group">
+            <label class="form-label" for="user-name">Name </label>
+            <div class="form-input-wrapper">
+              <input
+                class="form-input"
+                type="text"
+                name="user-name"
+                id="user-name"
+                required
+              />
+              <svg height="24" width="18" class="form-icon">
+                <use href="./images/icons.svg#person-icon"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-phone">Phone </label>
+            <div class="form-input-wrapper">
+              <input
+                class="form-input"
+                type="text"
+                name="user-phone"
+                id="user-phone"
+                required
+              />
+              <svg height="24" width="18" class="form-icon">
+                <use href="./images/icons.svg#phone-icon"></use>
+              </svg>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="user-email">Email </label>
+            <div class="form-input-wrapper">
+              <input
+                class="form-input"
+                type="text"
+                name="user-email"
+                id="user-email"
+                required
+              />
+              <svg height="24" width="18" class="form-icon">
+                <use href="./images/icons.svg#email-icon"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="user-comment"> Comment </label>
             <textarea
               class="form-textarea"
-              name="message"
+              name="user-comment"
+              id="user-comment"
               placeholder="Text input"
               rows="8"
             ></textarea>
-          </label>
-          <label class="form-label checkbox-label">
+          </div>
+          <div class="form-group form-group-checkbox">
             <input
               type="checkbox"
-              name="accept"
-              class="form-input form-input-checkbox"
+              name="user-privacy"
+              id="user-privacy"
+              class="form-input form-input-checkbox visually-hidden"
+              value="true"
             />
-            I accept the terms and conditions of the&nbsp;<a href=""> Privacy Policy</a> 
-          </label>
+
+            <label class="form-label checkbox-label" for="user-privacy">
+              <span class="checkbox-icon">
+                <svg height="8" width="10" class="checkbox-icon-svg">
+                  <use href="./images/icons.svg#check-icon"></use>
+                </svg>
+              </span>
+              I accept the terms and conditions of the<a class="policy" href="">
+                Privacy Policy</a
+              >
+            </label>
+          </div>
 
           <button class="accent-button" type="submit">Send</button>
         </form>
@@ -519,21 +558,23 @@
     </div>
 
     <script>
-      const overlay = document.querySelector('.modal-overlay');
-      const closeButton = document.querySelector('.close-button');
-      const orderButton = document.querySelector('.accent-button[type="button"]');
+      const overlay = document.querySelector(".modal-overlay");
+      const closeButton = document.querySelector(".close-button");
+      const orderButton = document.querySelector(
+        '.accent-button[type="button"]'
+      );
 
-      orderButton.addEventListener('click', () => {
-        overlay.classList.add('is-open');
+      orderButton.addEventListener("click", () => {
+        overlay.classList.add("is-open");
       });
 
-      closeButton.addEventListener('click', () => {
-        overlay.classList.remove('is-open');
+      closeButton.addEventListener("click", () => {
+        overlay.classList.remove("is-open");
       });
 
-      overlay.addEventListener('click', (event) => {
+      overlay.addEventListener("click", (event) => {
         if (event.target === overlay) {
-          overlay.classList.remove('is-open');
+          overlay.classList.remove("is-open");
         }
       });
     </script>
