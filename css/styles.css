@@ -502,8 +502,8 @@ button:focus {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
   height: 100%;
+  width: 100%;
   background-color: var(--navy-blue-modal);
   opacity: 0;
   visibility: hidden;
@@ -551,7 +551,9 @@ button:focus {
   transition: background-color var(--transition), border var(--transition);
 }
 
-.close-button:hover, .close-button:focus, .close-button:active {
+.close-button:hover,
+.close-button:focus,
+.close-button:active {
   background-color: var(--ocean);
   border: none;
 }
@@ -560,7 +562,8 @@ button:focus {
   transition: fill var(--transition);
 }
 
-.close-button:hover .close-icon, .close-button:focus .close-icon {
+.close-button:hover .close-icon,
+.close-button:focus .close-icon {
   fill: var(--white);
 }
 
@@ -595,7 +598,7 @@ button:focus {
 .checkbox-label {
   flex-direction: row;
   align-items: center;
-  line-height: 16px;
+  line-height: 1.17;
 }
 
 .form-input {
@@ -636,7 +639,7 @@ button:focus {
 }
 
 .form-input-checkbox:checked + .checkbox-label .checkbox-icon {
-  background-color: var(--iris);
+  background-color: var(--ocean);
   border: none;
   fill: var(--cloud);
 }
@@ -650,7 +653,8 @@ button:focus {
   height: 16px;
   border: 1px solid var(--navy-blue-modal);
   border-radius: 2px;
-  transition: background-color var(--transition), border var(--transition);
+  transition: background-color var(--transition), border var(--transition),
+    fill var(--transition);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -684,6 +688,10 @@ button:focus {
   line-height: 1.2;
   letter-spacing: 0.04em;
   color: var(--navy-blue-modal);
+}
+
+.form-group-textarea {
+  margin-bottom: 16px;
 }
 
 .form-group-checkbox {
